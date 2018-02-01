@@ -1,10 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<link href='style.css' rel='stylesheet'>
-</head>
-<body>
-<h1>This is a placeholder</h1>
+<?php
+	require_once('header.php');
+?>
 <p>
 This is a paragraph.
 </p>
