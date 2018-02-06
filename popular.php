@@ -3,7 +3,7 @@
 ?>
 <!-- Content goes here  -->
 <p>
-This is a paragraph.
+This page will be sorted by likes/hours since post.
 </p>
 
 <!-- End content        -->

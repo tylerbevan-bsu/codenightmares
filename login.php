@@ -3,7 +3,7 @@
 ?>
 <!-- Content goes here  -->
 <p>
-This is a paragraph.
+This will be a login page.
 </p>
 
 <!-- End content        -->
