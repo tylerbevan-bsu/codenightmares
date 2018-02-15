@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass:700|Ubuntu');
 
+html {
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	background-color:#f0f0f0;
+}
+
+article{
+	min-height: 100%;
+	width: 90%;
+	margin: 0px auto;
+	display:grid;
+	grid-template-rows: 120px auto 1fr 50px;
+	grid-template-columns: 100%;
+	align-items: stretch;
+}
+
 p {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -9,11 +28,8 @@ p {
     background-color: #50a14f;
 }
 
+
 div.title {
-    margin:auto; 
-    height:120px; 
-    width:90%;
-    top:0px; 
     padding:0px 0px;
     background-color:#4078f2; 
     overflow: hidden;
@@ -42,7 +58,6 @@ a.navbar {
     background-color:#4078f2;
     width:24%; 
     min-width:200px;
-    height:80px; 
     display:inline-block;
     padding: 0 0 0 0; 
     margin:0 0 0 0; 
@@ -54,20 +69,20 @@ a.navbar {
 }
     
 div.navbar {
-    width:90%; 
-    margin: auto; 
     padding:0px 0px;
     background-color:#4078f2;
     text-align: center;
     text-justify: distribute-all-lines;
-    -ms-text-justify: distribute-all-lines;
-    -moz-text-align-last: center; /* Code for Firefox */
+    -ms-text-justify: distribute-all-lines; /* Code for IE :( */
+    -moz-text-align-last: center; /* Code for Firefox ;) */
     text-align-last: center;
 }
 
-div.content-area {
-    width:90%; 
-    margin:auto; 
+main {
     background-color:#f9f9f9;  
-    min-height:800px
+}
+
+
+footer {
+	background-color:#696c77;
 }

@@ -3,7 +3,8 @@
 <head>
 <link href='/style.css' rel='stylesheet'>
 </head>
-<body style='background-color:#f0f0f0'>
+<body >
+<article>
 	<div class='title'>
 		<h1 class='title'>Code Nightmares</h1>
 		<img src='/assets/logo.png' alt='Logo' class='title'>
@@ -15,4 +16,4 @@
 		<a class='navbar' href='login.php' <?php if ($_SERVER[REQUEST_URI] == '/login.php') echo "id='current-page'"; ?>>Login</a>
 	</div>
 
-<div class='content-area'>
+<main>
