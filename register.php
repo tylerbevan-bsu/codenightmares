@@ -2,13 +2,13 @@
 	require_once('header.php');
 ?>
 <!-- Content goes here  -->
-<div style="margin:10px">
+<div class='login'>
      <form action="register-handler.php" method="POST">
-       <div style="margin:10px; font-family: ubuntu, sans-serif; font-size: 18px">Username: </div><input style="margin:10px" type="text" id="username" name="username">
-       <div style="margin:10px; font-family: ubuntu, sans-serif; font-size: 18px">Email: </div><input style="margin:10px" type="text" id="email" name="email">
-       <div style="margin:10px; font-family: ubuntu, sans-serif; font-size: 18px">Password: </div><input style="margin:10px" type="password" id="password1" name="password1">
-       <div style="margin:10px; font-family: ubuntu, sans-serif; font-size: 18px">Confirm Password: </div><input style="margin:10px" type="password" id="password2" name="password2">
-       <div style="margin:10px; font-family: ubuntu, sans-serif; font-size: 18px"><input style="margin:10px" type="submit" value="Register"></div>
+       <div class='login'>Username: </div><input class='login' type="text" id="username" name="username">
+       <div class='login'>Email: </div><input class='login' type="text" id="email" name="email">
+       <div class='login'>Password: </div><input class='login' type="password" id="password1" name="password1">
+       <div class='login'>Confirm Password: </div><input class='login' type="password" id="password2" name="password2">
+       <div class='login'><input class='login' type="submit" value="Register"></div>
      </form>
 </div>
 <!-- End content        -->

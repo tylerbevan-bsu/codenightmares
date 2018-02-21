@@ -150,3 +150,13 @@ h4.footright {
 	font-size: 15px;
 	font-family: ubuntu, sans-serif;
 }
+
+div.login {
+	margin:10px; 
+	font-family: ubuntu, sans-serif; 
+	font-size: 18px;
+}
+
+input.login {
+	margin:10px; 
+}
