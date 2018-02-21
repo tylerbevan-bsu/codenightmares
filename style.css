@@ -21,6 +21,10 @@ article{
 	align-items: stretch;
 }
 
+a {
+	text-decoration: none;
+}
+
 p {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -65,7 +69,6 @@ a.navbar {
     margin:0 0 0 0; 
     line-height: 40px; 
     text-align:center; 
-    text-decoration:none;
     border: solid;
     border-width: 2px;
 }
@@ -130,12 +133,28 @@ main {
 footer {
 	background-color:#696c77;
 	padding: 10px 10px;
+	display:grid;
+	grid-template-rows: auto;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: stretch;
 }
 
 h4.footleft {
     color: #383A42;
-	float: left;
 	margin: 0px;
+	grid-column: 1;
+	grid-row: 1;
+	line-height: 20px;
+	font-size: 15px;
+	font-family: ubuntu, sans-serif;
+}
+
+h4.footcenter {
+    color: #383A42;
+	grid-column: 2;
+	grid-row: 1;
+	margin: 0px;
+	text-align: center;
 	line-height: 20px;
 	font-size: 15px;
 	font-family: ubuntu, sans-serif;
@@ -143,9 +162,10 @@ h4.footleft {
 
 h4.footright {
     color: #383A42;
-    text-decoration:none;
-	float: right;
+    grid-column: 3;
+	grid-row: 1;
 	margin: 0px;
+	text-align: right;
 	line-height: 20px;
 	font-size: 15px;
 	font-family: ubuntu, sans-serif;
