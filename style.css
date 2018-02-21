@@ -16,7 +16,7 @@ article{
 	width: 90%;
 	margin: 0px auto;
 	display:grid;
-	grid-template-rows: 80px auto 1fr 50px;
+	grid-template-rows: 80px auto 1fr 40px;
 	grid-template-columns: 100%;
 	align-items: stretch;
 }
@@ -80,6 +80,48 @@ div.navbar {
     text-align-last: center;
 }
 
+div.post {
+	display: grid;
+	margin: 16px 0px;
+	font-family: ubuntu, sans-serif;
+}
+
+div.post-author {
+	grid-row:1;
+	grid-column:1;
+}
+
+div.code-box {
+	border-style: solid;
+	grid-row:2;
+	grid-column-start:1;
+	grid-column-end:4;
+}
+
+pre.code-box {
+	white-space: pre-wrap;       
+    white-space: -moz-pre-wrap;  
+    white-space: -pre-wrap;      
+    white-space: -o-pre-wrap;    
+    word-wrap: break-word;       
+	padding: 0px 16px;
+	font-family: ubuntu-mono, monospace;
+	font-size: 16px;
+	tab-size:4;
+	-moz-tab-size:4; /* For old Firefox versions */
+}
+
+div.post-time {
+	grid-row:3;
+	grid-column:1;
+}
+
+div.post-score {
+	grid-row:3;
+	grid-column:3;
+	text-align: right;
+}
+
 main {
     background-color:#f9f9f9;  
 }
@@ -87,4 +129,24 @@ main {
 
 footer {
 	background-color:#696c77;
+	padding: 10px 10px;
+}
+
+h4.footleft {
+    color: #383A42;
+	float: left;
+	margin: 0px;
+	line-height: 20px;
+	font-size: 15px;
+	font-family: ubuntu, sans-serif;
+}
+
+h4.footright {
+    color: #383A42;
+    text-decoration:none;
+	float: right;
+	margin: 0px;
+	line-height: 20px;
+	font-size: 15px;
+	font-family: ubuntu, sans-serif;
 }
