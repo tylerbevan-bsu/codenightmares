@@ -55,6 +55,33 @@ class Dao {
 		$query->execute();
 		return $query->fetch();
 	}
+	public function getLatestPosts ($start, $count) {
+		$conn = $this->getConnection();
+		$query = $conn->prepare("SELECT * FROM post ORDER BY posttime LIMIT :count OFFSET :start");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':count', $count);
+		$query->bindParam(':start', $start);
+		$query->execute();
+		return $query->fetchAll();
+	}
+	public function getHottestPosts ($start, $count) {
+		$conn = $this->getConnection();
+		$query = $conn->prepare("SELECT * FROM post ORDER BY count(vote.voteid WHERE vote.postid = post.postid) / (unix_timestamp() - unix_timestamp(posttime)) LIMIT :count OFFSET :start");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':count', $count);
+		$query->bindParam(':start', $start);
+		$query->execute();
+		return $query->fetchAll();
+	}
+	public function getTopPosts ($start, $count) {
+		$conn = $this->getConnection();
+		$query = $conn->prepare("SELECT * FROM post ORDER BY count(vote.voteid WHERE vote.postid = post.postid) DESC LIMIT :count OFFSET :start");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':count', $count);
+		$query->bindParam(':start', $start);
+		$query->execute();
+		return $query->fetchAll();
+	}
 
 }
 
