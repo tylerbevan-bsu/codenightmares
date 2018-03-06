@@ -1,9 +1,9 @@
 <?php
 class Dao {
-	private $host = "localhost";
+	private $host = "localhost:3306";
 	private $db = "codenightmares";
 	private $user = "root";
-	private $pass = "S0ma0iwfy!";
+	private $pass = "Ysnutra4a!";
 	private function getConnection () {
 		try {
 			return
@@ -19,7 +19,7 @@ class Dao {
 		$query->setFetchMode(PDO::FETCH_ASSOC);
 		$query->bindParam(':username', $username);
 		$query->execute();
-		return $query->columnCount() > 0;
+		return $query->rowCount() > 0;
 	}
 	public function checkEmailExists ($email) {
 		$conn = $this->getConnection();
@@ -27,7 +27,7 @@ class Dao {
 		$query->setFetchMode(PDO::FETCH_ASSOC);
 		$query->bindParam(':email', $email);
 		$query->execute();
-		return $query->columnCount() > 0;
+		return $query->rowCount() > 0;
 	}
 	public function checkPassword ($username, $password) {
 		$conn = $this->getConnection();
@@ -35,7 +35,7 @@ class Dao {
 		$query = $conn->prepare("SELECT password FROM user WHERE username = :username");
 		$query->bindParam(':username', $username);
 		$query->execute();
-		$hash = $query->fetch();
+		$hash = $query->fetch()[0];
 		return password_verify($password, $hash);
 	}
 	public function createUser ($username, $email, $password, $permission) {
@@ -43,7 +43,8 @@ class Dao {
 		$query = $conn->prepare("INSERT INTO user (username, email, password, permission) VALUES (:username, :email, :hash, :permission)");
 		$query->bindParam(':username', $username);
 		$query->bindParam(':email', $email);
-		$query->bindParam(':hash', password_hash($password, PASSWORD_DEFAULT));
+		$hash = password_hash($password, PASSWORD_DEFAULT);
+		$query->bindParam(':hash', $hash);
 		$query->bindParam(':permission', $permission);
 		$query->execute();
 	}
