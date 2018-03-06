@@ -48,6 +48,14 @@ class Dao {
 		$query->bindParam(':permission', $permission);
 		$query->execute();
 	}
+	public function changePassword ($username, $password) {
+		$conn = $this->getConnection();
+		$query = $conn->prepare("UPDATE user SET password=:hash WHERE username=:username");
+		$query->bindParam(':username', $username);
+		$hash = password_hash($password, PASSWORD_DEFAULT);
+		$query->bindParam(':hash', $hash);
+		$query->execute();
+	}
 	public function getPermissions ($username) {
 		$conn = $this->getConnection();
 		$query = $conn->prepare("SELECT permission FROM user WHERE username = :username");
