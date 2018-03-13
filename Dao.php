@@ -1,9 +1,9 @@
 <?php
 class Dao {
-	private $host = "localhost:3306";
+	private $host = "localhost";
 	private $db = "codenightmares";
 	private $user = "root";
-	private $pass = "Ysnutra4a!";
+	private $pass = "S0ma0iwfy!";
 	private function getConnection () {
 		try {
 			return
@@ -66,30 +66,30 @@ class Dao {
 	}
 	public function getLatestPosts ($start, $count) {
 		$conn = $this->getConnection();
-		$query = $conn->prepare("SELECT * FROM post ORDER BY posttime LIMIT :count OFFSET :start");
-		$query->setFetchMode(PDO::FETCH_ASSOC);
-		$query->bindParam(':count', $count);
-		$query->bindParam(':start', $start);
+		$query = $conn->prepare("SELECT post.username, posttime, count(vote.voteid) as score, content FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY posttime DESC LIMIT :start , :count ");
+		$query->setFetchMode(PDO::FETCH_BOTH);
+		$query->bindValue(':start', $start, PDO::PARAM_INT);
+		$query->bindValue(':count', $count, PDO::PARAM_INT);
 		$query->execute();
-		return $query->fetchAll();
+		return $query;
 	}
 	public function getHottestPosts ($start, $count) {
 		$conn = $this->getConnection();
-		$query = $conn->prepare("SELECT * FROM post ORDER BY count(vote.voteid WHERE vote.postid = post.postid) / (unix_timestamp() - unix_timestamp(posttime)) LIMIT :count OFFSET :start");
-		$query->setFetchMode(PDO::FETCH_ASSOC);
-		$query->bindParam(':count', $count);
-		$query->bindParam(':start', $start);
+		$query = $conn->prepare(" SELECT post.username, posttime, count(voteid) as score, content, count(voteid) - ((unix_timestamp() - unix_timestamp(posttime)) / 86400) as rating FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY rating DESC LIMIT :start , :count ");
+		$query->setFetchMode(PDO::FETCH_BOTH);
+		$query->bindValue(':start', $start, PDO::PARAM_INT);
+		$query->bindValue(':count', $count, PDO::PARAM_INT);
 		$query->execute();
-		return $query->fetchAll();
+		return $query;
 	}
 	public function getTopPosts ($start, $count) {
 		$conn = $this->getConnection();
-		$query = $conn->prepare("SELECT * FROM post ORDER BY count(vote.voteid WHERE vote.postid = post.postid) DESC LIMIT :count OFFSET :start");
-		$query->setFetchMode(PDO::FETCH_ASSOC);
-		$query->bindParam(':count', $count);
-		$query->bindParam(':start', $start);
+		$query = $conn->prepare("SELECT post.username, posttime, count(vote.voteid) as score, content FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY score DESC LIMIT :start , :count ");
+		$query->setFetchMode(PDO::FETCH_BOTH);
+		$query->bindValue(':start', $start, PDO::PARAM_INT);
+		$query->bindValue(':count', $count, PDO::PARAM_INT);
 		$query->execute();
-		return $query->fetchAll();
+		return $query;
 	}
 
 }
