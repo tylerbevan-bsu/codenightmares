@@ -62,7 +62,7 @@ a.navbar {
     font-size: 35px;
     color: #383A42;
     background-color:#4078f2;
-    width:24%; 
+    width:19%; 
     min-width:200px;
     display:inline-block;
     padding: 0 0 0 0; 
@@ -185,4 +185,10 @@ div.error {
 	margin:10px;
 	color: red;
 	font-size: 16px;
+}
+
+textarea.postform {
+	font-family: 'ubuntu-mono', monospace;
+	font-size: 16px;
+	margin: 0 auto;
 }

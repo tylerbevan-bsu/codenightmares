@@ -24,6 +24,7 @@
 <meta name="msapplication-config" content="/assets/browserconfig.xml">
 </head>
 <body >
+<?php session_start();?>
 <article>
 	<div class='title'>
 		<h1 class='title'>Code Nightmares</h1>
@@ -33,7 +34,34 @@
 		<a class='navbar' href='popular.php' <?php if ($_SERVER['REQUEST_URI'] == '/popular.php') echo "id='current-page'"; ?>>Popular</a>
 		<a class='navbar' href='latest.php' <?php if ($_SERVER['REQUEST_URI'] == '/latest.php') echo "id='current-page'"; ?>>Latest</a>
 		<a class='navbar' href='top.php' <?php if ($_SERVER['REQUEST_URI'] == '/top.php') echo "id='current-page'"; ?>>Top</a>
-		<a class='navbar' href='login.php' <?php if ($_SERVER['REQUEST_URI'] == '/login.php') echo "id='current-page'"; ?>>Login</a>
+		<?php
+		if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
+			echo "<a class='navbar' href='account.php '";
+			if ($_SERVER['REQUEST_URI'] == '/account.php') {
+				echo "id='current-page'";
+			}
+			echo ">Account</a>";
+		} else {
+			echo "<a class='navbar' href='login.php '";
+			if ($_SERVER['REQUEST_URI'] == '/login.php' || $_SERVER['REQUEST_URI'] == '/register.php') {
+				echo "id='current-page'";
+			}
+			echo ">Login</a>";
+		}
+		echo "\n";
+		if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
+			echo "<a class='navbar' href='new.php' ";
+		} else {
+			echo "<a class='navbar' href='login.php' ";
+		}
+		if ($_SERVER['REQUEST_URI'] == '/new.php') {
+			echo "id='current-page'";
+		}
+		echo ">New Post</a>";
+		
+
+		?>
+
 	</div>
 
 <main>

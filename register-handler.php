@@ -1,22 +1,26 @@
 <?php
+  session_start();
   require_once 'Dao.php';
   $dao = new Dao();
   $username = $_POST["username"];
+  $_SESSION["username"] = $username;
   $email = $_POST["email"];
+  $_SESSION["email"] = $email;
   $password1 = $_POST["password1"];
   $password2 = $_POST["password2"];
   if ($dao->checkUsernameExists($username)) {
-    echo "Username already taken.";
-    #header("Location: register.php");
+    $_SESSION["error1"] = "Username already taken!";
   } elseif ($dao->checkEmailExists($email)) {
-    echo "Email already in use."; 
-    #header("Location: register.php");
+    $_SESSION["error2"] = "Email already taken!";
   } elseif ($password1 != $password2) {
-    echo "Passwords don't match";
-    #header("Location: register.php");
+    $_SESSION["error3"] = "Passwords didn't match!";
   } else {
     echo "Account Created.";
     $dao->createUser($username, $email, $password1, 0);
-    #header("Location: login.php");
+    unset($_SESSION["error1"]);
+    unset($_SESSION["error2"]);
+    unset($_SESSION["error3"]);
+    header("Location: login.php");
   }
+  header("Location: register.php");
   exit;

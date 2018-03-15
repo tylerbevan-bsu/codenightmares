@@ -1,6 +1,5 @@
 <?php
 require_once('header.php');
-session_start();
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
 	header("Location:account.php");
 }
@@ -9,10 +8,7 @@ $email = "";
 if (isset($_SESSION["username"])) {
 	$email = $_SESSION["username"];
 }
-?>
-<!-- Content goes here  -->
 
-<?php
 if (isset($_SESSION["error"])) {
 	echo "<div class='error'>" .  $_SESSION["error"] . "</div>";
 	unset($_SESSION["error"]);
