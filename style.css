@@ -181,6 +181,10 @@ input.login {
 	margin:10px; 
 }
 
+.inputError{
+    border:2px solid red;
+}
+
 div.error {
 	margin:10px;
 	color: red;

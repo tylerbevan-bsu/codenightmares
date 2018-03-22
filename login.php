@@ -11,13 +11,12 @@ if (isset($_SESSION["username"])) {
 
 if (isset($_SESSION["error"])) {
 	echo "<div class='error'>" .  $_SESSION["error"] . "</div>";
-	unset($_SESSION["error"]);
 }
 ?>
 <div style="margin:10px">
 	<form action="login-handler.php" method="POST">
-		<div class='login'>Name: </div><input class='login' type="text" id="username" name="username" <?php echo $email; ?>>
-		<div class='login'>Password: </div><input class='login' type="password" id="password" name="password">
+		<div class='login'>Name: </div><input class='login<?php if (isset($_SESSION["error"])) {echo " inputError";}?>' type="text" id="username" name="username" required <?php echo $email; ?>>
+		<div class='login'>Password: </div><input class='login<?php if (isset($_SESSION["error"])) {echo " inputError";}?>' type="password" id="password" name="password" required>
 		<div class='login'><input class='login' type="submit" value="Login"></div>
 	</form>
 	<form action="register.php" method="GET">
@@ -27,5 +26,6 @@ if (isset($_SESSION["error"])) {
 
 <!-- End content        -->
 <?php
+unset($_SESSION["error"]);
 require_once('footer.php');
 ?>

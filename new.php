@@ -2,6 +2,7 @@
 require_once('header.php');
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
 } else {
+	$_SESSION["error"] = "Login to create a post";
 	header("Location: login.php");
 	die;
 }

@@ -49,11 +49,7 @@
 			echo ">Login</a>";
 		}
 		echo "\n";
-		if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
-			echo "<a class='navbar' href='new.php' ";
-		} else {
-			echo "<a class='navbar' href='login.php' ";
-		}
+		echo "<a class='navbar' href='new.php' ";
 		if ($_SERVER['REQUEST_URI'] == '/new.php') {
 			echo "id='current-page'";
 		}
