@@ -22,6 +22,9 @@
 <meta name="msapplication-TileColor" content="#FFFFFF">
 <meta name="msapplication-TileImage" content="/assets/favicon-144.png">
 <meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+<script src="js/jquery.js"></script>
+
 </head>
 <body >
 <?php session_start();?>
