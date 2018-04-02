@@ -74,7 +74,7 @@ class Dao {
 	}
 	public function getLatestPosts ($start, $count) {
 		$conn = $this->getConnection();
-		$query = $conn->prepare("SELECT post.username, posttime, count(vote.voteid) as score, content FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY posttime DESC LIMIT :start , :count ");
+		$query = $conn->prepare("SELECT postid, post.username, posttime, count(vote.voteid) as score, content FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY posttime DESC LIMIT :start , :count ");
 		$query->setFetchMode(PDO::FETCH_BOTH);
 		$query->bindValue(':start', $start, PDO::PARAM_INT);
 		$query->bindValue(':count', $count, PDO::PARAM_INT);
@@ -83,7 +83,7 @@ class Dao {
 	}
 	public function getHottestPosts ($start, $count) {
 		$conn = $this->getConnection();
-		$query = $conn->prepare(" SELECT post.username, posttime, count(voteid) as score, content, count(voteid) - ((unix_timestamp() - unix_timestamp(posttime)) / 86400) as rating FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY rating DESC LIMIT :start , :count ");
+		$query = $conn->prepare(" SELECT postid, post.username, posttime, count(voteid) as score, content, count(voteid) - ((unix_timestamp() - unix_timestamp(posttime)) / 86400) as rating FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY rating DESC LIMIT :start , :count ");
 		$query->setFetchMode(PDO::FETCH_BOTH);
 		$query->bindValue(':start', $start, PDO::PARAM_INT);
 		$query->bindValue(':count', $count, PDO::PARAM_INT);
@@ -92,12 +92,27 @@ class Dao {
 	}
 	public function getTopPosts ($start, $count) {
 		$conn = $this->getConnection();
-		$query = $conn->prepare("SELECT post.username, posttime, count(vote.voteid) as score, content FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY score DESC LIMIT :start , :count ");
+		$query = $conn->prepare("SELECT postid, post.username, posttime, count(vote.voteid) as score, content FROM post LEFT JOIN vote USING (postid) GROUP BY postid ORDER BY score DESC LIMIT :start , :count ");
 		$query->setFetchMode(PDO::FETCH_BOTH);
 		$query->bindValue(':start', $start, PDO::PARAM_INT);
 		$query->bindValue(':count', $count, PDO::PARAM_INT);
 		$query->execute();
 		return $query;
+	}
+	public function getVote ($username, $postid) {
+		$conn = $this->getConnection();
+		$query = $conn->prepare("SELECT username FROM vote WHERE username = :username AND postid = :postid");
+		$query->bindParam(':username', $username);
+		$query->bindParam(':postid', $postid);
+		$query->execute();
+		return $query->rowCount() > 0;
+	}
+	public function createVote ($username, $postid) {
+		$conn = $this->getConnection();
+		$query = $conn->prepare("INSERT INTO vote (username, postid) VALUES (:username, :postid)");
+		$query->bindParam(':username', $username);
+		$query->bindParam(':postid', $postid);
+		$query->execute();
 	}
 
 }

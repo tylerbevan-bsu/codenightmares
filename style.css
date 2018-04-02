@@ -196,3 +196,19 @@ textarea.postform {
 	font-size: 16px;
 	margin: 0 auto;
 }
+
+.hidden {
+	/* because google chrome evaluates specificty differently */
+	display: none !important;
+}
+
+.post-vote {
+	grid-row:3;
+	grid-column:3;
+	text-align: right;
+}
+
+.inline {
+	/* for making the vote block behave */
+	display: inline;
+}

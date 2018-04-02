@@ -6,6 +6,10 @@ require_once('post.php');
 <?php
 require_once 'Dao.php';
 $dao = new Dao();
+if (isset($_SESSION["error"])) {
+	echo "<div class='error'>" .  $_SESSION["error"] . "</div>";
+	unset($_SESSION["error"]);
+}
 if ('_GET' && isset($_GET["o"])){
 	$offset = (int) $_GET["o"];
 } else {
@@ -13,7 +17,7 @@ if ('_GET' && isset($_GET["o"])){
 }
 $query = $dao->getTopPosts($offset, 50);
 foreach ($query->fetchAll(PDO::FETCH_BOTH) as $row) {
-	createPost($row[0], $row[1], $row[2], htmlspecialchars($row[3]));
+	createPost($row[0], $row[1], $row[2], $row[3], htmlspecialchars($row[4]));
 }
 ?>
 
