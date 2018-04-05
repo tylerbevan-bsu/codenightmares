@@ -171,14 +171,18 @@ h4.footright {
 	font-family: ubuntu, sans-serif;
 }
 
-div.login {
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+}
+
+.login {
 	margin:10px; 
 	font-family: ubuntu, sans-serif; 
 	font-size: 18px;
-}
-
-input.login {
-	margin:10px; 
 }
 
 .inputError{
