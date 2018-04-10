@@ -17,7 +17,7 @@ if ('_GET' && isset($_GET["o"])){
 }
 $query = $dao->getLatestPosts($offset, 50);
 foreach ($query->fetchAll(PDO::FETCH_BOTH) as $row) {
-	createPost($row[0], $row[1], $row[2], $row[3], htmlspecialchars($row[4]));
+	createPost($row[0], htmlspecialchars($row[1]), $row[2], $row[3], htmlspecialchars($row[4]));
 }
 ?>
 
