@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Overpass:700|Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Overpass:700|Ubuntu|Fira+Mono');
 
 html {
 	height: 100%;
@@ -26,67 +26,68 @@ a {
 }
 
 p {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
 }
 
 #current-page {
-    background-color: #50a14f;
+	background-color: #50a14f;
 }
 
 
 div.title {
-    padding:0px 0px;
-    background-color:#4078f2; 
-    overflow: hidden;
+	padding:0px 0px;
+	background-color:#4078f2; 
+	overflow: hidden;
 }
 
 h1.title {
-    font-family: 'Overpass', sans-serif;
-    font-size: 40px;
-    display:inline-block; 
-    line-height:20px;
-    margin-left:10px; 
-    white-space:nowrap;
+	font-family: 'Overpass', sans-serif;
+	font-size: 40px;
+	display:inline-block; 
+	line-height:20px;
+	margin-left:10px; 
+	white-space:nowrap;
 }
 
 img.title {
-    float:right;
-    height:50px;
-    width:50px;
-    margin: 10px 30px;
+	float:right;
+	height:50px;
+	width:50px;
+	margin: 10px 30px;
 }
-    
+	
 a.navbar {
-    font-family: 'Overpass', sans-serif;
-    font-size: 35px;
-    color: #383A42;
-    background-color:#4078f2;
-    width:19%; 
-    min-width:200px;
-    display:inline-block;
-    padding: 0 0 0 0; 
-    margin:0 0 0 0; 
-    line-height: 40px; 
-    text-align:center; 
-    border: solid;
-    border-width: 2px;
+	font-family: 'Overpass', sans-serif;
+	font-size: 35px;
+	color: #383A42;
+	background-color:#4078f2;
+	width:19%; 
+	min-width:200px;
+	display:inline-block;
+	padding: 0 0 0 0; 
+	margin:0 0 0 0; 
+	line-height: 40px; 
+	text-align:center; 
+	border: solid;
+	border-width: 2px;
 }
-    
+	
 div.navbar {
-    padding:0px 0px;
-    background-color:#4078f2;
-    text-align: center;
-    text-justify: distribute-all-lines;
-    -ms-text-justify: distribute-all-lines; /* Code for IE :( */
-    -moz-text-align-last: center; /* Code for Firefox ;) */
-    text-align-last: center;
+	padding:0px 0px;
+	background-color:#4078f2;
+	text-align: center;
+	text-justify: distribute-all-lines;
+	-ms-text-justify: distribute-all-lines; /* Code for IE :( */
+	-moz-text-align-last: center; /* Code for Firefox ;) */
+	text-align-last: center;
 }
 
 div.post {
 	display: grid;
 	margin: 16px 0px;
 	font-family: ubuntu, sans-serif;
+	font-size: 16px;
 }
 
 div.post-author {
@@ -102,13 +103,13 @@ div.code-box {
 }
 
 pre.code-box {
-	white-space: pre-wrap;       
-    white-space: -moz-pre-wrap;  
-    white-space: -pre-wrap;      
-    white-space: -o-pre-wrap;    
-    word-wrap: break-word;       
+	white-space: pre-wrap;   
+	white-space: -moz-pre-wrap;  
+	white-space: -pre-wrap;	  
+	white-space: -o-pre-wrap;	
+	word-wrap: break-word;	   
 	padding: 0px 16px;
-	font-family: ubuntu-mono, monospace;
+	font-family: 'Fira Mono', monospace;
 	font-size: 16px;
 	tab-size:4;
 	-moz-tab-size:4; /* For old Firefox versions */
@@ -126,7 +127,7 @@ div.post-score {
 }
 
 main {
-    background-color:#f9f9f9;  
+	background-color:#f9f9f9;  
 }
 
 
@@ -140,7 +141,7 @@ footer {
 }
 
 h4.footleft {
-    color: #383A42;
+	color: #383A42;
 	margin: 0px;
 	grid-column: 1;
 	grid-row: 1;
@@ -150,7 +151,7 @@ h4.footleft {
 }
 
 h4.footcenter {
-    color: #383A42;
+	color: #383A42;
 	grid-column: 2;
 	grid-row: 1;
 	margin: 0px;
@@ -161,8 +162,8 @@ h4.footcenter {
 }
 
 h4.footright {
-    color: #383A42;
-    grid-column: 3;
+	color: #383A42;
+	grid-column: 3;
 	grid-row: 1;
 	margin: 0px;
 	text-align: right;
@@ -172,21 +173,21 @@ h4.footright {
 }
 
 label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 100px;
-    text-align: right;
+	font-family: Ubuntu, sans-serif;
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 100px;
+	text-align: right;
 }
 
 .login {
 	margin:10px; 
-	font-family: ubuntu, sans-serif; 
-	font-size: 18px;
+	font-family: Ubuntu, sans-serif; 
 }
 
 .inputError{
-    border:2px solid red;
+	border:2px solid red;
 }
 
 div.error {
