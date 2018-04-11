@@ -16,11 +16,17 @@ if (isset($_SESSION["error"])) {
 	<form id="login-form" action="login-handler.php" method="POST">
 		<p>
 		<label class='login' for="username">Name: </label>
+		</p>
+		<p>
 		<input class='login<?php if (isset($_SESSION["error"])) { echo " inputError"; } ?>' type="text" minlength=4 id="username" name="username" required>
 		</p>
 		<p>
 		<label class='login' for="password">Password: </label>
+		</p>
+		<p>
 		<input class='login<?php if (isset($_SESSION["error"])) { echo " inputError"; } ?>' type="password" minlength=8 id="password" name="password" required>
+		</p>
+		<p>
 		</p>
 		<p>
 		<input class='login' type="submit" value="Login">

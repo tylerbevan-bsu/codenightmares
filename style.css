@@ -174,15 +174,11 @@ h4.footright {
 
 label{
 	font-family: Ubuntu, sans-serif;
-	display: inline-block;
-	float: left;
-	clear: left;
-	width: 100px;
-	text-align: right;
+	margin:0px; 
 }
 
 .login {
-	margin:10px; 
+	margin:1px; 
 	font-family: Ubuntu, sans-serif; 
 }
 
