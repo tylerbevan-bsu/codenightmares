@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once 'Dao.php';
+  require_once('../templates/Dao.php');
   $dao = new Dao();
   unset($_SESSION["error1"]);
   unset($_SESSION["error2"]);
@@ -28,10 +28,10 @@
     $_SESSION["error3"] = "Passwords didn't match!";
   }
   if (isset($_SESSION["error1"]) || isset($_SESSION["error2"]) || isset($_SESSION["error3"])){
-    header("Location: register.php");
+    header("Location: /pages/register.php");
   } else {
     echo "Account Created.";
     $dao->createUser($username, $email, $password1, 0);
-    header("Location: login.php");
+    header("Location: /pages/login.php");
   }
   exit;

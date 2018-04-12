@@ -1,5 +1,5 @@
 <?php
-require_once('header.php');
+require_once('../templates/header.php');
 
 if (isset($_SESSION["error1"])) {
 	echo "<div class='error'>" .  $_SESSION["error1"] . "</div>";
@@ -12,12 +12,12 @@ if (isset($_SESSION["error3"])) {
 }
 ?>
 
-<script src="js/jquery.validate.js"></script>
-<script src="js/jquery.cookie.js"></script>
+<script src="/js/jquery.validate.js"></script>
+<script src="/js/jquery.cookie.js"></script>
 
 <!-- Content goes here  -->
 <div class='login'>
-<form id="register-form" action="register-handler.php" method="POST">
+<form id="register-form" action="/handlers/register-handler.php" method="POST">
 	<p>
 	<label for="username" class='login'>Username: </label>
 	</p>
@@ -57,5 +57,5 @@ $('#email').val($.cookie("email"));
 unset($_SESSION["error1"]);
 unset($_SESSION["error2"]);
 unset($_SESSION["error3"]);
-require_once('footer.php');
+require_once('../templates/footer.php');
 ?>

@@ -1,10 +1,10 @@
 <?php
-require_once('header.php');
-require_once('post.php');
+require_once('../templates/header.php');
+require_once('../templates/post.php');
+require_once('../templates/Dao.php');
 ?>
 <!-- Content goes here  -->
 <?php
-require_once 'Dao.php';
 if (isset($_SESSION["error"])) {
 	echo "<div class='error'>" .  $_SESSION["error"] . "</div>";
 	unset($_SESSION["error"]);
@@ -23,5 +23,5 @@ foreach ($query->fetchAll(PDO::FETCH_BOTH) as $row) {
 
 <!-- End content        -->
 <?php
-require_once('footer.php');
+require_once('../templates/footer.php');
 ?>

@@ -1,5 +1,5 @@
 <?php
 
-header( "Location: /popular.php" )
+header( "Location: /pages/popular.php" )
 
 ?>

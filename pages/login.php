@@ -1,5 +1,5 @@
 <?php
-require_once('header.php');
+require_once('../templates/header.php');
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
 	header("Location:account.php");
 }
@@ -9,11 +9,11 @@ if (isset($_SESSION["error"])) {
 }
 ?>
 
-<script src="js/jquery.validate.js"></script>
-<script src="js/jquery.cookie.js"></script>
+<script src="/js/jquery.validate.js"></script>
+<script src="/js/jquery.cookie.js"></script>
 
 <div style="margin:10px">
-	<form id="login-form" action="login-handler.php" method="POST">
+	<form id="login-form" action="/handlers/login-handler.php" method="POST">
 		<p>
 		<label class='login' for="username">Name: </label>
 		</p>
@@ -32,7 +32,7 @@ if (isset($_SESSION["error"])) {
 		<input class='login' type="submit" value="Login">
 		</p>
 	</form>
-	<form action="register.php" method="GET">
+	<form action="/pages/register.php" method="GET">
 		<p>
 		<input class='login' type="submit" value="Register">
 		</p>
@@ -47,5 +47,5 @@ $('#username').val($.cookie("username"));
 <!-- End content        -->
 <?php
 unset($_SESSION["error"]);
-require_once('footer.php');
+require_once('../templates/footer.php');
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ("_POST") {
-  require_once 'Dao.php';
+  require_once('../templates/Dao.php');
   $dao = new Dao();
   $username = $_POST["username"];
   $_SESSION["username"] = $username;
@@ -15,6 +15,6 @@ if ("_POST") {
 	unset($_SESSION["error"]);
 	$_SESSION["logged_in"] = true;
   }
-  header("Location: login.php");
+  header("Location: /pages/login.php");
 }
 exit;

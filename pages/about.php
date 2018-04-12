@@ -1,5 +1,5 @@
 <?php
-	require_once('header.php');
+	require_once('../templates/header.php');
 ?>
 <!-- Content goes here  -->
 
@@ -17,5 +17,5 @@ It is being hosted on <a href="https://digitalocean.com">DigitalOcean</a>.
 
 <!-- End content        -->
 <?php
-	require_once('footer.php');
+	require_once('../templates/footer.php');
 ?>

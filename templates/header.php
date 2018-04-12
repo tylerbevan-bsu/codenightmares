@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<link href='/style.css' rel='stylesheet'>
+<link href='/templates/style.css' rel='stylesheet'>
 <link rel="shortcut icon" href="/assets/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="196x196" href="/assets/favicon-192.png">
@@ -23,7 +23,7 @@
 <meta name="msapplication-TileImage" content="/assets/favicon-144.png">
 <meta name="msapplication-config" content="/assets/browserconfig.xml">
 
-<script src="js/jquery.js"></script>
+<script src="/js/jquery.js"></script>
 
 </head>
 <body >
@@ -34,26 +34,26 @@
 		<img src='/assets/logo.png' alt='Logo' class='title'>
 	</div>
 	<div class='navbar'>
-		<a class='navbar' href='popular.php' <?php if ($_SERVER['REQUEST_URI'] == '/popular.php') echo "id='current-page'"; ?>>Popular</a>
-		<a class='navbar' href='latest.php' <?php if ($_SERVER['REQUEST_URI'] == '/latest.php') echo "id='current-page'"; ?>>Latest</a>
-		<a class='navbar' href='top.php' <?php if ($_SERVER['REQUEST_URI'] == '/top.php') echo "id='current-page'"; ?>>Top</a>
+		<a class='navbar' href='/pages/popular.php' <?php if ($_SERVER['REQUEST_URI'] == '/pages/popular.php') echo "id='current-page'"; ?>>Popular</a>
+		<a class='navbar' href='/pages/latest.php' <?php if ($_SERVER['REQUEST_URI'] == '/pages/latest.php') echo "id='current-page'"; ?>>Latest</a>
+		<a class='navbar' href='/pages/top.php' <?php if ($_SERVER['REQUEST_URI'] == '/pages/top.php') echo "id='current-page'"; ?>>Top</a>
 		<?php
 		if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
-			echo "<a class='navbar' href='account.php '";
-			if ($_SERVER['REQUEST_URI'] == '/account.php') {
+			echo "<a class='navbar' href='/pages/account.php '";
+			if ($_SERVER['REQUEST_URI'] == '/pages/account.php') {
 				echo "id='current-page'";
 			}
 			echo ">Account</a>";
 		} else {
-			echo "<a class='navbar' href='login.php '";
-			if ($_SERVER['REQUEST_URI'] == '/login.php' || $_SERVER['REQUEST_URI'] == '/register.php') {
+			echo "<a class='navbar' href='/pages/login.php '";
+			if ($_SERVER['REQUEST_URI'] == '/pages/login.php' || $_SERVER['REQUEST_URI'] == '/pages/register.php') {
 				echo "id='current-page'";
 			}
 			echo ">Login</a>";
 		}
 		echo "\n";
-		echo "<a class='navbar' href='new.php' ";
-		if ($_SERVER['REQUEST_URI'] == '/new.php') {
+		echo "<a class='navbar' href='/pages/new.php' ";
+		if ($_SERVER['REQUEST_URI'] == '/pages/new.php') {
 			echo "id='current-page'";
 		}
 		echo ">New Post</a>";

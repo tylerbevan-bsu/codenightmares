@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ("_POST") {
-	require_once 'Dao.php';
+	require_once('../templates/Dao.php');
 	$dao = new Dao();
 	$username = $_SESSION["username"];
 	$postid = $_POST["postid"];
@@ -14,7 +14,7 @@ if ("_POST") {
 	if(isset($_SERVER["HTTP_REFERER"])){
 		header("Location: {$_SERVER["HTTP_REFERER"]}");
 	} else {
-		header("Location: popular.php");
+		header("Location: /pages/popular.php");
 	}
 }
 exit;
