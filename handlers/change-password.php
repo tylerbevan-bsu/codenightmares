@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ("_POST") {
-	require_once 'Dao.php';
+	require_once('../templates/Dao.php');
 	$dao = new Dao();
 	$username = $_SESSION["username"];
 	$password1 = $_POST["password1"];
