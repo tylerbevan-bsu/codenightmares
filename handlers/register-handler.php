@@ -7,10 +7,10 @@
   unset($_SESSION["error3"]);
   $username = $_POST["username"];
   $_SESSION["username"] = $username;
-  setcookie("username", $username);
+  setcookie("username", $username, 0, "/");
   $email = $_POST["email"];
   $_SESSION["email"] = $email;
-  setcookie("email", $email);
+  setcookie("email", $email, 0, "/");
   $regex = '/.+@.+\..+/';
   $is_email = preg_match($regex, $email, $matches);
   if ($is_email == false) {

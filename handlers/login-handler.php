@@ -5,7 +5,7 @@ if ("_POST") {
   $dao = new Dao();
   $username = $_POST["username"];
   $_SESSION["username"] = $username;
-  setcookie("username", $username);
+  setcookie("username", $username, 0, "/");
   $password = $_POST["password"];
   if (! $dao->checkUsernameExists($username)) {
 	$_SESSION["error"] = "Username/Password combo is invalid";
