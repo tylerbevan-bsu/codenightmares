@@ -20,6 +20,10 @@ foreach ($query->fetchAll(PDO::FETCH_BOTH) as $row) {
 	createPost($row[0], htmlspecialchars($row[1]), $row[2], $row[3], htmlspecialchars($row[4]));
 }
 ?>
+<form action="/pages/popular.php<?php echo "?o=" , $offset + 50  ?>" method="post">
+    <input class="login" style="float: right" type="submit" value="Next Page" 
+         name="nextpage" id="nextpage" />
+</form>
 
 <!-- End content        -->
 <?php
